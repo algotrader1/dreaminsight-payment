@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paiement réussi - DreamInsight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="3;url=dreaminsight://subscription/success">
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            text-align: center; 
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+        h1 { color: #4CAF50; margin-top: 10px; }
+        .button { 
+            background-color: #6200EA; 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 6px; 
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #5000ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+        </div>
+        <h1>Paiement réussi!</h1>
+        <p>Votre abonnement à DreamInsight est maintenant actif.</p>
+        <p>Vous allez être redirigé automatiquement vers l'application...</p>
+        <a href="dreaminsight://subscription/success" class="button">Retourner à l'application</a>
+    </div>
+
+    <script type="text/javascript">
+        // Tentative de redirection immédiate
+        window.location.href = "dreaminsight://subscription/success";
+        
+        // Si toujours sur cette page après 1 seconde, on attend le délai du meta refresh
+        setTimeout(function() {
+            document.querySelector('.button').innerHTML = "Cliquez ici si vous n'êtes pas redirigé automatiquement";
+        }, 1000);
+    </script>
+</body>
+</html>
