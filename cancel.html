@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paiement annulé - DreamInsight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="3;url=dreaminsight://subscription/cancel">
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            text-align: center; 
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        .cancel-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #F44336;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .cancel-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+        h1 { color: #F44336; margin-top: 10px; }
+        .button { 
+            background-color: #6200EA; 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 6px; 
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #5000ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="cancel-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+        <h1>Paiement annulé</h1>
+        <p>Votre paiement a été annulé. Aucun montant n'a été débité.</p>
+        <p>Vous allez être redirigé automatiquement vers l'application...</p>
+        <a href="dreaminsight://subscription/cancel" class="button">Retourner à l'application</a>
+    </div>
+
+    <script type="text/javascript">
+        // Tentative de redirection immédiate
+        window.location.href = "dreaminsight://subscription/cancel";
+        
+        // Si toujours sur cette page après 1 seconde, on attend le délai du meta refresh
+        setTimeout(function() {
+            document.querySelector('.button').innerHTML = "Cliquez ici si vous n'êtes pas redirigé automatiquement";
+        }, 1000);
+    </script>
+</body>
+</html>
